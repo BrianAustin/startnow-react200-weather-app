@@ -5,6 +5,8 @@ export default class CityInfo extends React.Component {
     super(props);
   }
 
+// Kelvin to F formula: F = 9/5 (K - 273) + 32
+
   render() {
     return (
       <div className='card border-primary mb-3'>
