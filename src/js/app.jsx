@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Search from './components/Search/Search.jsx';
 import CityInfo from './components/CityInfo/CityInfo.jsx';
 import History from './components/History/History.jsx';
