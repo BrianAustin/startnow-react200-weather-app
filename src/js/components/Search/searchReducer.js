@@ -15,10 +15,14 @@ export default function searchReducer (state = defaultState, action) {
     }
 
     case 'SEARCH_CLICK': {
+      const { searchText } = action.payload;
       return {
-        ...state,
-        data: payload.data
-      }
+        searchText: '',
+        data: [
+          ...state.data,
+          { searchText }
+        ]
+      };
     }
 
     default: {

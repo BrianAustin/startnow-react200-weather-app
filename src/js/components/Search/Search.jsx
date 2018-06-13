@@ -3,7 +3,7 @@ import React from 'react';
 //import action creators below
 import {
   updateSearchText,
-  SearchClick
+  searchClick
 } from './searchActions';
 
 export default class Search extends React.Component {
@@ -14,15 +14,15 @@ export default class Search extends React.Component {
     this.handleSearchClick =  this.handleSearchClick.bind(this);
   }
 
-  handleSearchInput(e) {
+  handleSearchInput(event) {
     const { dispatch } = this.props;
-    const { value } = e.target;
+    const { value } = event.target;
     dispatch(updateSearchText(value));
   }
 
   handleSearchClick() {
     const { searchText, dispatch } = this.props;
-    dispatch(SearchClick(searchText));
+    dispatch(searchClick(searchText));
   }
 
   render() {
@@ -48,6 +48,7 @@ export default class Search extends React.Component {
             placeholder="Enter a place on Earth" 
             aria-label="Enter a place on Earth" 
             aria-describedby="basic-addon2"
+            value={ searchText }
             onChange={ this.handleSearchInput }  
           />
           <div className="input-group-append">
