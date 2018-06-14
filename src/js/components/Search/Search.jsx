@@ -3,7 +3,7 @@ import React from 'react';
 //import action creators below
 import {
   updateSearchText,
-  searchClick
+  searchClickFulfilled
 } from './searchActions';
 
 export default class Search extends React.Component {
@@ -22,7 +22,7 @@ export default class Search extends React.Component {
 
   handleSearchClick() {
     const { searchText, dispatch } = this.props;
-    dispatch(searchClick(searchText));
+    dispatch(searchClickFulfilled(searchText));
   }
 
   render() {
@@ -34,10 +34,10 @@ export default class Search extends React.Component {
             <a className="nav-link active" href="#">Active</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">History1</a>
+            <a className="nav-link" href="#">PreLoad1</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">History2</a>
+            <a className="nav-link" href="#">PreLoad2</a>
           </li>
         </ul>
         {/* search bar start below */}

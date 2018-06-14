@@ -14,16 +14,20 @@ export default function searchReducer (state = defaultState, action) {
       };
     }
 
-    case 'SEARCH_CLICK': {
-      const { searchText } = action.payload;
+    // case 'SEARCH_CLICK_PENDING': {
+    //   return state;
+    // }
+
+    case 'SEARCH_CLICK_FULFILLED': {
       return {
-        searchText: '',
-        data: [
-          ...state.data,
-          { searchText }
-        ]
+        ...state,
+        data: payload
       };
     }
+
+    // case 'SEARCH_CLICK_REJECTED': {
+    //   return 
+    // }
 
     default: {
       return state;
