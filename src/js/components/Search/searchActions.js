@@ -13,5 +13,6 @@ export function searchClickFulfilled(searchText) {
     type: 'SEARCH_CLICK',
     payload: axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + searchText + '&units=imperial&APPID=' + apiKey)
     .then(response => response.data)
+    .catch(err => console.log(err))
   };
 }
