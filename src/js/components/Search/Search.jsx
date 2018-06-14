@@ -26,7 +26,7 @@ export default class Search extends React.Component {
   }
 
   render() {
-    const { searchText, data } = this.props;
+    const { searchText } = this.props;
     return (
       <div>
         <ul className="nav nav-tabs">
@@ -34,10 +34,19 @@ export default class Search extends React.Component {
             <a className="nav-link active" href="#">Active</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">PreLoad1</a>
+            <a className="nav-link" href="#">Chicago</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">PreLoad2</a>
+            <a className="nav-link" href="#">New York</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">London</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">Chiang Mai</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">Taipai</a>
           </li>
         </ul>
         {/* search bar start below */}
