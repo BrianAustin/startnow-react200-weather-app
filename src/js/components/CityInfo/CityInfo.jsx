@@ -7,58 +7,123 @@ export default class CityInfo extends React.Component {
 
   render() {
     const { lon, lat, icon, temp, pressure, humidity, temp_min, temp_max, windSpeed, id, name, noResult, pending } = this.props;
-    return (
-      <div className='card mb-3'>
-        <div className='card-header text-white bg-primary'>
-          City Information
-        </div>
-        <div className='card-body'>
-          <div className='row'>
-            <div className='col-12 col-lg-12'>
-              <div className='card text-center'>
-                <h2 className='card-text'><span>
-                  <img height='50px' width='50px' src={'http://openweathermap.org/img/w/'+icon+'.png'} alt='weather graphic' /></span>
-                {name}
-                </h2> 
-                <p className='card-text'><small>Lat/Long: {lat}, {lon}</small></p>
-                <hr />
-                <div className='row'>
-                  <div className='col-lg-4'>
-                    <div className='card text-center'>
-                      <p className='card-text font-weight-bold text-center'>Temperature</p>
-                      <p className='card-text text-center text-success text-bold'>{parseInt(temp)}F</p>
+    let toDisplay;
+
+    if(noResult === true) {
+      toDisplay = 
+        <div className='card mb-3'>
+          <div className='card-header text-white bg-primary'>
+            City Information
+          </div>
+          <div className='card-body'>
+            <div className='row'>
+              <div className='col-12 col-lg-12'>
+                <div className='card text-center'>
+                  <h2 className='card-text mt-3'><span>
+                    <img height='50px' width='50px' src='http://openweathermap.org/img/w/01d.png' alt='weather graphic' /></span>
+                  Do a Search Above!
+                  </h2> 
+                  <p className='card-text'><small>Lat/Long: </small></p>
+                  <hr />
+                  <div className='row'>
+                    <div className='col-lg-4'>
+                      <div className='card text-center'>
+                        <p className='card-text font-weight-bold text-center'>Temperature</p>
+                        <p className='card-text text-center text-success text-bold mb-3'>Fahrenheit</p>
+                      </div>
+                    </div>
+                    <div className='col-lg-4'>
+                      <div className='card text-center'>
+                        <p className='card-text font-weight-bold text-center'>Pressure</p>
+                        <p className='card-text text-center text-success text-bold mb-3'>millibars</p>
+                      </div>
+                    </div>
+                    <div className='col-lg-4'>
+                      <div className='card text-center'>
+                        <p className='card-text font-weight-bold text-center'>Humidity</p>
+                        <p className='card-text text-center text-success text-bold mb-3'> % </p>
+                      </div>
                     </div>
                   </div>
-                  <div className='col-lg-4'>
-                    <div className='card text-center'>
-                      <p className='card-text font-weight-bold text-center'>Pressure</p>
-                      <p className='card-text text-center text-success text-bold'>{pressure}mb</p>
+                  <div className='row'>
+                    <div className='col-lg-4'>
+                      <div className='card text-center'>
+                        <p className='card-text font-weight-bold text-center'>Low Temp</p>
+                        <p className='card-text text-center text-success text-bold mb-3'>Fahrenheit</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className='col-lg-4'>
-                    <div className='card text-center'>
-                      <p className='card-text font-weight-bold text-center'>Humidity</p>
-                      <p className='card-text text-center text-success text-bold'>{humidity}%</p>
+                    <div className='col-lg-4'>
+                      <div className='card text-center'>
+                        <p className='card-text font-weight-bold text-center'>High Temp</p>
+                        <p className='card-text text-center text-success text-bold mb-3'>Fahrenheit</p>
+                      </div>
+                    </div>
+                    <div className='col-lg-4'>
+                      <div className='card text-center'>
+                        <p className='card-text font-weight-bold text-center'>Wind Speed</p>
+                        <p className='card-text text-center text-success text-bold mb-3'> mph </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className='row'>
-                  <div className='col-lg-4'>
-                    <div className='card text-center'>
-                      <p className='card-text font-weight-bold text-center'>Low Temp</p>
-                      <p className='card-text text-center text-success text-bold'>{parseInt(temp_min)}F</p>
+              </div>
+            </div>
+          </div>
+        </div>;
+    } else {
+        toDisplay =
+          <div className='card mb-3'>
+          <div className='card-header text-white bg-primary'>
+            City Information
+          </div>
+          <div className='card-body'>
+            <div className='row'>
+              <div className='col-12 col-lg-12'>
+                <div className='card text-center'>
+                  <h2 className='card-text mt-3'><span>
+                    <img height='50px' width='50px' src={'http://openweathermap.org/img/w/'+icon+'.png'} alt='weather graphic' /></span>
+                  {name}
+                  </h2> 
+                  <p className='card-text'><small>Lat/Long: {lat}, {lon}</small></p>
+                  <hr />
+                  <div className='row'>
+                    <div className='col-lg-4'>
+                      <div className='card text-center'>
+                        <p className='card-text font-weight-bold text-center'>Temperature</p>
+                        <p className='card-text text-center text-success text-bold mb-3'>{parseInt(temp)}F</p>
+                      </div>
+                    </div>
+                    <div className='col-lg-4'>
+                      <div className='card text-center'>
+                        <p className='card-text font-weight-bold text-center'>Pressure</p>
+                        <p className='card-text text-center text-success text-bold mb-3'>{pressure}mb</p>
+                      </div>
+                    </div>
+                    <div className='col-lg-4'>
+                      <div className='card text-center'>
+                        <p className='card-text font-weight-bold text-center'>Humidity</p>
+                        <p className='card-text text-center text-success text-bold mb-3'>{humidity}%</p>
+                      </div>
                     </div>
                   </div>
-                  <div className='col-lg-4'>
-                    <div className='card text-center'>
-                      <p className='card-text font-weight-bold text-center'>High Temp</p>
-                      <p className='card-text text-center text-success text-bold'>{parseInt(temp_max)}F</p>
+                  <div className='row'>
+                    <div className='col-lg-4'>
+                      <div className='card text-center'>
+                        <p className='card-text font-weight-bold text-center'>Low Temp</p>
+                        <p className='card-text text-center text-success text-bold mb-3'>{parseInt(temp_min)}F</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className='col-lg-4'>
-                    <div className='card text-center'>
-                      <p className='card-text font-weight-bold text-center'>Wind Speed</p>
-                      <p className='card-text text-center text-success text-bold'>{parseInt(windSpeed)}mph</p>
+                    <div className='col-lg-4'>
+                      <div className='card text-center'>
+                        <p className='card-text font-weight-bold text-center'>High Temp</p>
+                        <p className='card-text text-center text-success text-bold mb-3'>{parseInt(temp_max)}F</p>
+                      </div>
+                    </div>
+                    <div className='col-lg-4'>
+                      <div className='card text-center'>
+                        <p className='card-text font-weight-bold text-center'>Wind Speed</p>
+                        <p className='card-text text-center text-success text-bold mb-3'>{parseInt(windSpeed)}mph</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -66,7 +131,10 @@ export default class CityInfo extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      ;}
+    
+    return (
+      toDisplay
     );
   }
 }

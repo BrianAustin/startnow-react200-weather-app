@@ -22,7 +22,12 @@ export default class Search extends React.Component {
 
   handleSearchClick() {
     const { searchText, dispatch } = this.props;
-    dispatch(searchClickFulfilled(searchText));
+
+    if(searchText == '') {
+      return alert('How about you write some text in that search box...')
+    } else {
+        dispatch(searchClickFulfilled(searchText));
+    }  
   }
 
   render() {
@@ -31,10 +36,10 @@ export default class Search extends React.Component {
       <div>
         <ul className="nav nav-tabs">
           <li className="nav-item">
-            <a className="nav-link active" href="#">Active</a>
+            <a className="nav-link active" href="#">Search</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Chicago</a>
+            <a className="nav-link bg-primary text-white" href="#">Chicago</a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">New York</a>

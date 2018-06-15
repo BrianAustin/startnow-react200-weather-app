@@ -10,7 +10,7 @@ export default class App extends React.Component {
       <div className='container'>
         <div className='jumbotron'>
           <h1 className='display-4'>Brian's Weather Application</h1>
-          <p className='lead'>Always know if you'll need a flame thrower!</p>
+          <p className='lead'>Always know if you'll need a flame thrower...</p>
         </div>
         {/* Search component below */}
         <Search />
@@ -26,7 +26,7 @@ export default class App extends React.Component {
               <History />
             </div>
             {/* Search History box end above */}            
-          {/* closing row div for CITY INFO and SEARCH HISTORY below   */}
+          {/* closing row div for CITY INFO and SEARCH HISTORY below */}
           </div>  
       {/* closing container div below */}
       </div>
