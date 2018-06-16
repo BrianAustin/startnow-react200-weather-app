@@ -90,7 +90,7 @@ export default class CityInfo extends React.Component {
                     <div className='col-lg-4'>
                       <div className='card text-center'>
                         <p className='card-text font-weight-bold text-center'>Temperature</p>
-                        <p className='card-text text-center text-success text-bold mb-3'>{parseInt(temp)}F</p>
+                        <p className='card-text text-center text-success text-bold mb-3'>{parseInt(temp)}F°</p>
                       </div>
                     </div>
                     <div className='col-lg-4'>
@@ -110,13 +110,13 @@ export default class CityInfo extends React.Component {
                     <div className='col-lg-4'>
                       <div className='card text-center'>
                         <p className='card-text font-weight-bold text-center'>Low Temp</p>
-                        <p className='card-text text-center text-success text-bold mb-3'>{parseInt(temp_min)}F</p>
+                        <p className='card-text text-center text-success text-bold mb-3'>{parseInt(temp_min)}F°</p>
                       </div>
                     </div>
                     <div className='col-lg-4'>
                       <div className='card text-center'>
                         <p className='card-text font-weight-bold text-center'>High Temp</p>
-                        <p className='card-text text-center text-success text-bold mb-3'>{parseInt(temp_max)}F</p>
+                        <p className='card-text text-center text-success text-bold mb-3'>{parseInt(temp_max)}F°</p>
                       </div>
                     </div>
                     <div className='col-lg-4'>

@@ -13,7 +13,8 @@ const defaultState = {
   name: '',
   noResult: true,
   pending: false,
-  selectedCity: ''
+  selectedCity: '',
+  history: []
 };
 
 export default function searchReducer (state = defaultState, action) {

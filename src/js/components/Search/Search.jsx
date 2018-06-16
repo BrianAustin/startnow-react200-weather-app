@@ -11,6 +11,7 @@ export default class Search extends React.Component {
     super(props);
 
     this.handleSearchInput = this.handleSearchInput.bind(this);
+    this.handlePreLoadedCityClick = this.handlePreLoadedCityClick.bind(this);
     this.handleSearchClick =  this.handleSearchClick.bind(this);
   }
 
@@ -20,9 +21,17 @@ export default class Search extends React.Component {
     dispatch(updateSearchText(value));
   }
 
+  handlePreLoadedCityClick(event) {
+    const { dispatch } = this.props;
+    const { value } = event.target;
+    console.log(value);
+    // dispatch(updateSearchText(value));
+    this.handleSearchClick(value);
+  }
+
   handleSearchClick() {
     const { searchText, dispatch } = this.props;
-
+    // const searchText = text ? text : this.props.searchText
     if(searchText == '') {
       return alert('How about you write some text in that search box...')
     } else {
@@ -31,44 +40,42 @@ export default class Search extends React.Component {
   }
 
   render() {
-    const { searchText } = this.props;
     return (
       <div>
-        <ul className="nav nav-tabs">
-          <li className="nav-item">
-            <a className="nav-link active" href="#">Search</a>
+        <ul className='nav nav-tabs'>
+          <li className='nav-item'>
+            <button className='nav-link active' type='button'>Search</button>
           </li>
-          <li className="nav-item">
-            <a className="nav-link bg-primary text-white" href="#">Chicago</a>
+          <li className='nav-item'>
+            <button className='nav-link bg-primary text-white' type='button'>Chicago</button>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">New York</a>
+          <li className='nav-item'>
+            <button className='nav-link' type='button' value={'New York'} onClick={ this.handlePreLoadedCityClick }>New York</button>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">London</a>
+          <li className='nav-item'>
+            <button className='nav-link' type='button'>London</button>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Chiang Mai</a>
+          <li className='nav-item'>
+            <button className='nav-link' type='button'>Chiang Mai</button>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Taipai</a>
+          <li className='nav-item'>
+            <button className='nav-link' type='button'>Taipei</button>
           </li>
         </ul>
         {/* search bar start below */}
-        <div className="input-group mb-4">
+        <div className='input-group mb-4'>
           <input 
-            type="text" 
-            className="form-control" 
-            placeholder="Enter a place on Earth" 
-            aria-label="Enter a place on Earth" 
-            aria-describedby="basic-addon2"
-            value={ searchText }
+            type='text' 
+            className='form-control' 
+            placeholder='Enter a city on Earth' 
+            aria-label='Enter a city on Earth' 
+            aria-describedby='basic-addon2'
             onChange={ this.handleSearchInput }  
           />
-          <div className="input-group-append">
+          <div className='input-group-append'>
             <button 
-              className="btn btn-outline-secondary" 
-              type="button"
+              className='btn btn-primary'
+              type='button'
               onClick={ this.handleSearchClick }
             >Go!
             </button>
