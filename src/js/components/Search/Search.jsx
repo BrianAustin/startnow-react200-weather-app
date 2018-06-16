@@ -23,10 +23,9 @@ export default class Search extends React.Component {
 
   handlePreLoadedCityClick(event) {
     const { dispatch } = this.props;
-    const { value } = event.target;
-    console.log(value);
-    // dispatch(updateSearchText(value));
-    this.handleSearchClick(value);
+    console.log(event.target.value);
+    dispatch(searchClickFulfilled(event.target.value));
+    dispatch(updateSearchText(event.target.value));
   }
 
   handleSearchClick() {
@@ -40,6 +39,7 @@ export default class Search extends React.Component {
   }
 
   render() {
+    const searchText = this.props.searchText;
     return (
       <div>
         <ul className='nav nav-tabs'>
@@ -47,19 +47,19 @@ export default class Search extends React.Component {
             <button className='nav-link active' type='button'>Search</button>
           </li>
           <li className='nav-item'>
-            <button className='nav-link bg-primary text-white' type='button'>Chicago</button>
+            <button className='nav-link bg-primary text-white' type='button' value='Chicago' onClick={ this.handlePreLoadedCityClick }>Chicago</button>
           </li>
           <li className='nav-item'>
-            <button className='nav-link' type='button' value={'New York'} onClick={ this.handlePreLoadedCityClick }>New York</button>
+            <button className='nav-link' type='button' value='New York' onClick={ this.handlePreLoadedCityClick }>New York</button>
           </li>
           <li className='nav-item'>
-            <button className='nav-link' type='button'>London</button>
+            <button className='nav-link' type='button' value='London' onClick={ this.handlePreLoadedCityClick }>London</button>
           </li>
           <li className='nav-item'>
-            <button className='nav-link' type='button'>Chiang Mai</button>
+            <button className='nav-link' type='button' value='Chiang Mai' onClick={ this.handlePreLoadedCityClick }>Chiang Mai</button>
           </li>
           <li className='nav-item'>
-            <button className='nav-link' type='button'>Taipei</button>
+            <button className='nav-link' type='button' value='Taipei' onClick={ this.handlePreLoadedCityClick }>Taipei</button>
           </li>
         </ul>
         {/* search bar start below */}
@@ -76,6 +76,7 @@ export default class Search extends React.Component {
             <button 
               className='btn btn-primary'
               type='button'
+              value={ searchText }
               onClick={ this.handleSearchClick }
             >Go!
             </button>
