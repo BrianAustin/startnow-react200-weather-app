@@ -3,7 +3,8 @@ import React from 'react';
 //import action creators below
 import {
   updateSearchText,
-  searchClickFulfilled
+  searchClickFulfilled,
+  updateHistory
 } from './searchActions';
 
 export default class Search extends React.Component {
@@ -23,9 +24,9 @@ export default class Search extends React.Component {
 
   handlePreLoadedCityClick(event) {
     const { dispatch } = this.props;
-    console.log(event.target.value);
     dispatch(searchClickFulfilled(event.target.value));
     dispatch(updateSearchText(event.target.value));
+    dispatch(updateHistory(event.target.value));
   }
 
   handleSearchClick() {
@@ -35,6 +36,7 @@ export default class Search extends React.Component {
       return alert('How about you write some text in that search box...')
     } else {
         dispatch(searchClickFulfilled(searchText));
+        dispatch(updateHistory(searchText));
     }  
   }
 
@@ -47,7 +49,7 @@ export default class Search extends React.Component {
             <button className='nav-link active' type='button'>Search</button>
           </li>
           <li className='nav-item'>
-            <button className='nav-link bg-primary text-white' type='button' value='Chicago' onClick={ this.handlePreLoadedCityClick }>Chicago</button>
+            <button className='nav-link' type='button' value='Chicago' onClick={ this.handlePreLoadedCityClick }>Chicago</button>
           </li>
           <li className='nav-item'>
             <button className='nav-link' type='button' value='New York' onClick={ this.handlePreLoadedCityClick }>New York</button>

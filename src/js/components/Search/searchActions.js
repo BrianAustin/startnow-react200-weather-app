@@ -7,6 +7,13 @@ export function updateSearchText(searchText) {
   };
 }
 
+export function updateHistory(searchText) {
+  return {
+    type: 'UPDATE_HISTORY',
+    payload: { searchText }
+  };
+}
+
 export function searchClickFulfilled(searchText) {
   const apiKey = '8865b8e84dfd6add3f527280db67511e';
   return {

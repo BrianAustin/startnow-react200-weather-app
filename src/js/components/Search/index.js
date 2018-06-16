@@ -17,7 +17,8 @@ function mapStoreToProps(store) {
     name: store.search.name,
     noResult: store.search.noResult,
     pending: store.search.pending,
-    selectedCity: store.search.selectedCity
+    selectedCity: store.search.selectedCity,
+    history: store.search.history
   };
 }
 

@@ -11,7 +11,7 @@ export default class CityInfo extends React.Component {
 
     if(noResult === true) {
       toDisplay = 
-        <div className='card mb-3'>
+        <div className='card mb-3 display-background'>
           <div className='card-header text-white bg-primary'>
             City Information
           </div>
@@ -72,7 +72,7 @@ export default class CityInfo extends React.Component {
         </div>;
     } else {
         toDisplay =
-          <div className='card mb-3'>
+          <div className='card mb-3 display-background'>
           <div className='card-header text-white bg-primary'>
             City Information
           </div>
