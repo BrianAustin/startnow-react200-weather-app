@@ -6,13 +6,13 @@ export default class CityInfo extends React.Component {
   }
 
   render() {
-    const { lon, lat, icon, temp, pressure, humidity, temp_min, temp_max, windSpeed, id, name, noResult, pending } = this.props;
+    const { lon, lat, icon, temp, pressure, humidity, temp_min, temp_max, windSpeed, name, noResult, pending } = this.props;
     let toDisplay;
 
     if(noResult === true) {
       toDisplay = 
         <div className='card mb-3 display-background'>
-          <div className='card-header text-white bg-primary'>
+          <div className='card-header text-white'>
             City Information
           </div>
           <div className='card-body'>
@@ -73,7 +73,7 @@ export default class CityInfo extends React.Component {
     } else {
         toDisplay =
           <div className='card mb-3 display-background'>
-          <div className='card-header text-white bg-primary'>
+          <div className='card-header text-white'>
             City Information
           </div>
           <div className='card-body'>

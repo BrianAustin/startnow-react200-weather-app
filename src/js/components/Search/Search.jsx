@@ -46,29 +46,50 @@ export default class Search extends React.Component {
       <div>
         <ul className='nav nav-tabs'>
           <li className='nav-item'>
-            <button className='nav-link active' type='button'>Search</button>
+            <button 
+              className='nav-link active border-top border-right border-left border-dark' 
+              type='button'>Search</button>
           </li>
           <li className='nav-item'>
-            <button className='nav-link' type='button' value='Chicago' onClick={ this.handlePreLoadedCityClick }>Chicago</button>
+            <button 
+              className='nav-link border-top border-right border-left border-dark' 
+              type='button' 
+              value='Chicago' 
+              onClick={ this.handlePreLoadedCityClick }>Chicago</button>
           </li>
           <li className='nav-item'>
-            <button className='nav-link' type='button' value='New York' onClick={ this.handlePreLoadedCityClick }>New York</button>
+            <button 
+              className='nav-link border-top border-right border-left border-dark' 
+              type='button' value='New York' 
+              onClick={ this.handlePreLoadedCityClick }>New York</button>
           </li>
           <li className='nav-item'>
-            <button className='nav-link' type='button' value='London' onClick={ this.handlePreLoadedCityClick }>London</button>
+            <button 
+              className='nav-link border-top border-right border-left border-dark' 
+              type='button' value='London' 
+              onClick={ this.handlePreLoadedCityClick }>London</button>
           </li>
           <li className='nav-item'>
-            <button className='nav-link' type='button' value='Chiang Mai' onClick={ this.handlePreLoadedCityClick }>Chiang Mai</button>
+            <button 
+              className='nav-link border-top border-right border-left border-dark' 
+              type='button' 
+              value='Chiang Mai' 
+              onClick={ this.handlePreLoadedCityClick }>Chiang Mai</button>
           </li>
           <li className='nav-item'>
-            <button className='nav-link' type='button' value='Taipei' onClick={ this.handlePreLoadedCityClick }>Taipei</button>
+            <button 
+              className='nav-link border-top border-right border-left border-dark' 
+              type='button' 
+              value='Taipei' 
+              onClick={ this.handlePreLoadedCityClick }>Taipei</button>
           </li>
         </ul>
         {/* search bar start below */}
         <div className='input-group mb-4'>
           <input 
             type='text' 
-            className='form-control' 
+            className='form-control'
+            maxLength='24' 
             placeholder='Enter a city on Earth' 
             aria-label='Enter a city on Earth' 
             aria-describedby='basic-addon2'
@@ -76,7 +97,7 @@ export default class Search extends React.Component {
           />
           <div className='input-group-append'>
             <button 
-              className='btn btn-primary'
+              className='btn text-white search-button'
               type='button'
               value={ searchText }
               onClick={ this.handleSearchClick }

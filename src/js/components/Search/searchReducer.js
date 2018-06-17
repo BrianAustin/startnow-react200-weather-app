@@ -9,11 +9,10 @@ const defaultState = {
   temp_min: '',
   temp_max: '',
   windSpeed: '',
-  id: '',
   name: '',
+  id: '',
   noResult: true,
   pending: false,
-  selectedCity: '',
   history: []
 };
 
@@ -28,7 +27,20 @@ export default function searchReducer (state = defaultState, action) {
   let minute = date.getMinutes();
   let second = date.getSeconds();
 
-  let dateFormatted = month + '/' + day + '/' + year;  
+  if(day < 10) {
+    day = '0' + day;
+  }
+  let dateFormatted = month + '/' + day + '/' + year; 
+  
+  if(hour < 10) {
+    hour = '0' + hour;
+  }
+  if(minute < 10) {
+    minute = '0' + minute;
+  }
+  if(second < 10) {
+    second = '0' + second;
+  }
   let timeFormatted = hour + ':' + minute + ':' + second;
 
   switch (type) {
@@ -81,9 +93,7 @@ export default function searchReducer (state = defaultState, action) {
     case 'SEARCH_CLICK_REJECTED': {
       return {
         ...state,
-        noResult: true,
         pending: false,
-        selectedCity: ''
       }
     }
 
