@@ -7,6 +7,7 @@
     "build": "npm run less && webpack --mode development",
     "start": "node server/index.js",
     "less": "lessc src/css/style.less dist/css/style.css",
+    "postinstall": "npm run build",
     "lint": "eslint .",
     "test": "npm run build && mocha test/.setup.js test/*.spec.js --exit"
   },
