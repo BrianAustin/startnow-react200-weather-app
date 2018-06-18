@@ -6,7 +6,7 @@ export default class CityInfo extends React.Component {
   }
 
   render() {
-    const { lon, lat, icon, temp, pressure, humidity, temp_min, temp_max, windSpeed, name, noResult, pending } = this.props;
+    const { lon, lat, icon, temp, pressure, humidity, temp_min, temp_max, windSpeed, name, noResult } = this.props;
     let toDisplay;
 
     if(noResult === true) {

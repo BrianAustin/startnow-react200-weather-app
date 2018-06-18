@@ -14,6 +14,39 @@ export default class Search extends React.Component {
     this.handleSearchInput = this.handleSearchInput.bind(this);
     this.handlePreLoadedCityClick = this.handlePreLoadedCityClick.bind(this);
     this.handleSearchClick =  this.handleSearchClick.bind(this);
+    this.createDate = this.createDate.bind(this);
+    this.createTime = this.createTime.bind(this);
+  }
+
+  createDate() {
+    const date = new Date();
+    const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+    let month = months[date.getMonth()];
+    let day = date.getDate();
+    let year = date.getFullYear();
+
+    if(day < 10) {
+      day = '0' + day;
+    }
+    return (month + '/' + day + '/' + year); 
+  }
+
+  createTime() {
+    const date = new Date();
+    let hour = date.getHours();
+    let minute = date.getMinutes();
+    let second = date.getSeconds();
+
+    if(hour < 10) {
+      hour = '0' + hour;
+    }
+    if(minute < 10) {
+      minute = '0' + minute;
+    }
+    if(second < 10) {
+      second = '0' + second;
+    }
+    return (hour + ':' + minute + ':' + second);
   }
 
   handleSearchInput(event) {
@@ -24,9 +57,12 @@ export default class Search extends React.Component {
 
   handlePreLoadedCityClick(event) {
     const { dispatch } = this.props;
+    const dateFormatted = this.createDate();
+    const timeFormatted =  this.createTime();
+
     dispatch(searchClickFulfilled(event.target.value));
     dispatch(updateSearchText(event.target.value));
-    dispatch(updateHistory(event.target.value));
+    dispatch(updateHistory(event.target.value, dateFormatted, timeFormatted));
   }
 
   handleSearchClick() {
@@ -35,8 +71,11 @@ export default class Search extends React.Component {
     if(searchText == '') {
       return alert('How about you write some text in that search box...')
     } else {
+        const dateFormatted = this.createDate();
+        const timeFormatted =  this.createTime();
+
         dispatch(searchClickFulfilled(searchText));
-        dispatch(updateHistory(searchText));
+        dispatch(updateHistory(searchText, dateFormatted, timeFormatted));
     }  
   }
 

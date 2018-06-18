@@ -18,30 +18,6 @@ const defaultState = {
 
 export default function searchReducer (state = defaultState, action) {
   const { type, payload } = action;
-  const date = new Date();
-  const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
-  let month = months[date.getMonth()];
-  let day = date.getDate();
-  let year = date.getFullYear();
-  let hour = date.getHours();
-  let minute = date.getMinutes();
-  let second = date.getSeconds();
-
-  if(day < 10) {
-    day = '0' + day;
-  }
-  let dateFormatted = month + '/' + day + '/' + year; 
-  
-  if(hour < 10) {
-    hour = '0' + hour;
-  }
-  if(minute < 10) {
-    minute = '0' + minute;
-  }
-  if(second < 10) {
-    second = '0' + second;
-  }
-  let timeFormatted = hour + ':' + minute + ':' + second;
 
   switch (type) {
     case 'UPDATE_SEARCH_TEXT': {
@@ -53,12 +29,13 @@ export default function searchReducer (state = defaultState, action) {
 
     case 'UPDATE_HISTORY': {
       return {
+        ...state,
         history: [
           ...state.history,
           {
             city: payload.searchText,
-            date: dateFormatted,
-            time: timeFormatted
+            date: payload.dateFormatted,
+            time: payload.timeFormatted
           }
         ]
       };
@@ -67,7 +44,7 @@ export default function searchReducer (state = defaultState, action) {
     case 'SEARCH_CLICK_PENDING': {
       return {
         ...state,
-        pending: true  
+        pending: true, 
       };
     }
 
@@ -93,7 +70,7 @@ export default function searchReducer (state = defaultState, action) {
     case 'SEARCH_CLICK_REJECTED': {
       return {
         ...state,
-        pending: false,
+        pending: false
       }
     }
 

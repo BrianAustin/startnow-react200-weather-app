@@ -7,10 +7,10 @@ export function updateSearchText(searchText) {
   };
 }
 
-export function updateHistory(searchText) {
+export function updateHistory(searchText, dateFormatted, timeFormatted) {
   return {
     type: 'UPDATE_HISTORY',
-    payload: { searchText }
+    payload: { searchText, dateFormatted, timeFormatted }
   };
 }
 
